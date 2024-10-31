@@ -20,8 +20,8 @@
         </select>
       </div>
 
-      <div id="emotion" name="input-emotion">
-        <p>相手の心理状況<br>ネガティブ<input id="emotion" type="range">ポジティブ</p>
+      <div  name="input-emotion">
+        <p>相手の心理状況<br>ネガ<input id="emotion" type="range">ポジ</p>
       </div>
 
       <div id="effect" name="input-effect">
@@ -36,30 +36,29 @@
         </div>
       </div>
 
-      <div id="submit" name="input-submit-button">
-        <input name="submit-button" type="submit" value="予想する">
-      </div>
+
+
     </div>
 
     <div class="hand grid-hand" name="expected-hand">
       <div class="stone">
         <img class="hand-image" src="C:\Users\1598069\OneDrive - トヨタ自動車株式会社\dig_cloud\foundations\day20\発表\stone-hand.jpg">
         <p class="luck-text">
-          出される可能性<br>
+          可能性<br>
          <p>33%</p>
         </p>
       </div>
-      <div class="scisoors">
+      <div class="hand scisoors">
         <img class="hand-image" src="C:\Users\1598069\OneDrive - トヨタ自動車株式会社\dig_cloud\foundations\day20\発表\scisoors-hand.jpg">
         <p class="luck-text">
-          出される可能性<br>
+          可能性<br>
           <p>33%</p>
         </p>
       </div>
-      <div class="peper">
+      <div class="hand peper">
         <img class="hand-image" src="C:\Users\1598069\OneDrive - トヨタ自動車株式会社\dig_cloud\foundations\day20\発表\peper-hand.jpg">
         <p class="luck-text">
-          出される可能性<br>
+          可能性<br>
           <p>33%</p>
         </p>
       </div>
@@ -68,22 +67,26 @@
 
     <div class="result grid-result">
       <div class="victory">
-        <button>勝利</button>
+        <button id="victory-button">勝利</button>
       </div>
       <div class="loose">
-        <button>敗北</button>
+        <button id="loose-button">敗北</button>
       </div>
       <div class="draw">
-        <button>
+        <button id="draw-button">
           あいこ<br>
-          連続<strong name="chain">1回</strong>
+          連続1回
         </button>
       </div>
     </div>
 
   </div>
-  <div>
-
+  <div class="data">
+    <table class="dataTable" border="1";>
+      <tr>
+        <th>対戦相手</th><th>心理状況</th><th>対戦効果</th><th>出された手</th><th>勝敗</th>
+      </tr>
+    </table>
   </div>
   <script type="text/javascript" src="script.js"></script>
 </body>
