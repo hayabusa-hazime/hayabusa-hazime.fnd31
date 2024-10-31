@@ -2,9 +2,6 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 3;
-    gap:5px;
-    width: auto;
-    height: auto;
     grid-template-areas: 
         "input hand"
         "input hand"
@@ -13,6 +10,7 @@
 .input{
     grid-area: input;
     background-color: bisque;
+    text-align: center;
 }
 .hand{
     grid-area: hand;
@@ -25,22 +23,26 @@
 .grid-hand{
     display: grid;
     grid-template-columns: 3;
-    gap:5px;
-    width: auto;
     grid-template-areas: 
         "stone scisoors peper";
 }
 .stone{
     grid-area: stone;
     background-color: aqua;
+    visibility: hidden;
+    text-align: center;
 }
 .scisoors{
     grid-area: scisoors;
     background-color: brown;
+    visibility: hidden;
+    text-align: center;
 }
 .peper{
     grid-area: peper;
     background-color: rgb(145, 23, 102);
+    visibility: hidden;
+    text-align: center;
 }
 .hand-image{
     width: 100px;
@@ -50,33 +52,62 @@
 .grid-result{
     display: grid;
     grid-template-columns: 3;
-    gap:5px;
-    width: auto;
     grid-template-areas: 
         "victory loose draw";
 }
 .victory{
     grid-area: victory ;
+    text-align: center;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .loose{
     grid-area: loose ;
+    text-align: center;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .draw{
     grid-area: draw ;
+    text-align: center;
+    background-color: chartreuse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#victory-button{
+    padding: 0% 30% 0% 30%;
+}
+#loose-button{
+    padding: 0% 30% 0% 30%;
+}
+#draw-button{
+    padding: 0% 20% 0% 20%;
+}
+
+.dataTable{
+    background-color: antiquewhite;
+    width: 100%;
+    text-align: center;
+    
 }
 
 #user-select{
-    height: 20%;
+    height: 30%;
 }
 
 #emotion{
-    height: 20%;
+    height: 30%;
 }
 
 #effect{
-    height: 35%
+    height: 30%
 }
 
 #user{
-    height: 20%
+    height: 30%
 }
