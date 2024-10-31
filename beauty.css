@@ -1,0 +1,82 @@
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 3;
+    gap:5px;
+    width: auto;
+    height: auto;
+    grid-template-areas: 
+        "input hand"
+        "input hand"
+        "input result";
+}
+.input{
+    grid-area: input;
+    background-color: bisque;
+}
+.hand{
+    grid-area: hand;
+}
+.result{
+    grid-area: result;
+}
+
+
+.grid-hand{
+    display: grid;
+    grid-template-columns: 3;
+    gap:5px;
+    width: auto;
+    grid-template-areas: 
+        "stone scisoors peper";
+}
+.stone{
+    grid-area: stone;
+    background-color: aqua;
+}
+.scisoors{
+    grid-area: scisoors;
+    background-color: brown;
+}
+.peper{
+    grid-area: peper;
+    background-color: rgb(145, 23, 102);
+}
+.hand-image{
+    width: 100px;
+    height: 100px;
+}
+
+.grid-result{
+    display: grid;
+    grid-template-columns: 3;
+    gap:5px;
+    width: auto;
+    grid-template-areas: 
+        "victory loose draw";
+}
+.victory{
+    grid-area: victory ;
+}
+.loose{
+    grid-area: loose ;
+}
+.draw{
+    grid-area: draw ;
+}
+
+#user-select{
+    height: 20%;
+}
+
+#emotion{
+    height: 20%;
+}
+
+#effect{
+    height: 35%
+}
+
+#user{
+    height: 20%
+}
