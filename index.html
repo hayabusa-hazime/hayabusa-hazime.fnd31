@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="beauty.css">
+</head>
+
+<body>
+  <div class="grid" name="start-input-form">
+    <div class="input">
+
+      <div name="input-user">
+        <select id="user-select" name="user">
+          <option value="">対戦相手を選択してください</option>
+          <option value="S.Y">S.Y</option>
+          <option value="Y.M">Y.M</option>
+        </select>
+      </div>
+
+      <div id="emotion" name="input-emotion">
+        <p>相手の心理状況<br>ネガティブ<input id="emotion" type="range">ポジティブ</p>
+      </div>
+
+      <div id="effect" name="input-effect">
+        <div name="input-effect-type">
+          <select name="effect-type">
+            <option value="money">お金</option>
+            <option value="work">労力</option>
+          </select>
+        </div>
+        <div name="input-effect-value">
+          <input name="effect" type="number">
+        </div>
+      </div>
+
+      <div id="submit" name="input-submit-button">
+        <input name="submit-button" type="submit" value="予想する">
+      </div>
+    </div>
+
+    <div class="hand grid-hand" name="expected-hand">
+      <div class="stone">
+        <img class="hand-image" src="C:\Users\1598069\OneDrive - トヨタ自動車株式会社\dig_cloud\foundations\day20\発表\stone-hand.jpg">
+        <p class="luck-text">
+          出される可能性<br>
+         <p>33%</p>
+        </p>
+      </div>
+      <div class="scisoors">
+        <img class="hand-image" src="C:\Users\1598069\OneDrive - トヨタ自動車株式会社\dig_cloud\foundations\day20\発表\scisoors-hand.jpg">
+        <p class="luck-text">
+          出される可能性<br>
+          <p>33%</p>
+        </p>
+      </div>
+      <div class="peper">
+        <img class="hand-image" src="C:\Users\1598069\OneDrive - トヨタ自動車株式会社\dig_cloud\foundations\day20\発表\peper-hand.jpg">
+        <p class="luck-text">
+          出される可能性<br>
+          <p>33%</p>
+        </p>
+      </div>
+    </div>
+
+
+    <div class="result grid-result">
+      <div class="victory">
+        <button>勝利</button>
+      </div>
+      <div class="loose">
+        <button>敗北</button>
+      </div>
+      <div class="draw">
+        <button>
+          あいこ<br>
+          連続<strong name="chain">1回</strong>
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <div>
+
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
