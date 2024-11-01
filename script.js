@@ -1,44 +1,18 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-//let submitEventButton = document.getElementsByName("submit-button")[0]
+let submitEventButton = document.getElementById("submit-button");
 
-const submitEvent = (event) => {
-    let userValue = document.getElementsByName("user")[0].value;
-    let emotionValue = document.getElementById("emotion").value;
-    let effectTypeValue = document.getElementsByName("effect-type")[0].value
-    let effectValue = document.getElementsByName("effect")[0].valueAsNumber
-
-    // 値が空の時に別処理をしたい
-
-    localStorage.setItem("user",userValue);
-    localStorage.setItem("emotion",emotionValue);
-    localStorage.setItem("effectType",effectTypeValue);
-    localStorage.setItem("effect",effectValue);
-    //window.location.href = "file:///C:/Users/1598069/OneDrive%20-%20%E3%83%88%E3%83%A8%E3%82%BF%E8%87%AA%E5%8B%95%E8%BB%8A%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/dig_cloud/foundations/day20/%E7%99%BA%E8%A1%A8/index2.html";//移動先のurl
-}
-// submitEventButton.addEventListener("click",submitEvent)
-
-//値が入力されていたらObjにする？
-
-// const valueObject = {
-//     user:userValue,
-//     emotion:emotionValue,
-//     effectType:effectTypeValue,
-//     effect:effectValue,
-// };
-
-//上手くいかず
-//ちゃんと値がない=>userだけおかしい
-//ローカルストレージに値渡し
 
 //user,emotion,effect
 const addTableView = () => {
+    const random = randomHand()
     const valueArray = [
-        document.getElementsByName("user")[0].value,
-        document.getElementById("emotion").value,
+        document.getElementsByName("user")[0].value === "" ? "不明":document.getElementsByName("user")[0].value,
+        document.getElementById("emotion").value-50,
         //document.getElementsByName("effect-type")[0].value,
-        document.getElementsByName("effect")[0].valueAsNumber
+        isNaN(document.getElementsByName("effect")[0].valueAsNumber) ? "嬉しい":document.getElementsByName("effect")[0].valueAsNumber,
+        random
     ];
     const trTag = document.createElement("tr");
     valueArray.forEach(value => {
@@ -46,6 +20,10 @@ const addTableView = () => {
         valueTag.innerText = value;
         trTag.appendChild(valueTag);
     })
+    //全部表示されて行ってしまう
+    const hands = ["stone","scisoors","peper"];
+    hands.forEach(hand=>document.getElementsByClassName(hand)[0].style.visibility = "hidden");
+    document.getElementsByClassName(random)[0].style.visibility = "visible"
     return trTag
 }
 
@@ -54,13 +32,48 @@ const looseButton = document.getElementById("loose-button")
 const drawButton = document.getElementById("draw-button")
 
 
-victoryButton.addEventListener("click",() => {document.getElementsByClassName("dataTable")[0].appendChild(addTableView())})
-//submitEventButton.addEventListener("click",() => {document.getElementsByClassName("dataTable")[0].appendChild(addTableView())})
+//victoryButton.addEventListener("click",() => {document.getElementsByClassName("dataTable")[0].appendChild(addTableView())})
+submitEventButton.addEventListener("click",() => {document.getElementsByClassName("dataTable")[0].appendChild(addTableView())})
 
-// document.getElementsByClassName("dataTable").appendChild(addTableView())
+//document.getElementsByClassName("dataTable").appendChild(addTableView())
 
 const randomHand = () =>{
     return ["stone","scisoors","peper"][Math.floor(Math.random()*3)];
 } 
 
-document.getElementsByClassName(randomHand())[0].style.visibility = "visible"
+//document.getElementsByClassName(randomHand())[0].style.visibility = "visible"
+
+
+//予想をとデータを記載するムーブ
+const victoryEvent = () => {
+    const tag = document.createElement("td");
+    tag.innerText = "勝利"
+    return tag;
+}
+victoryButton.addEventListener("click",()=>{
+    document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr")[document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr").length-1].appendChild(victoryEvent());
+    document.getElementsByName("draw-count")[0].innerText = 1;
+})
+
+
+const looseEvent = () => {
+    const tag = document.createElement("td");
+    tag.innerText = "敗北"
+    return tag;
+}
+looseButton.addEventListener("click",()=>{
+    document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr")[document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr").length-1].appendChild(looseEvent());
+    document.getElementsByName("draw-count")[0].innerText = 1;
+})
+
+
+const drawEvent = () =>{
+    const tag = document.createElement("td");
+    tag.innerText = "引き分け"
+    return tag;
+}
+drawButton.addEventListener("click",()=>{
+    document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr")[document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr").length-1].appendChild(drawEvent());
+    document.getElementsByClassName("dataTable")[0].appendChild(addTableView());
+    document.getElementsByName("draw-count")[0].innerText = Number(document.getElementsByName("draw-count")[0].innerText)+1;
+})
