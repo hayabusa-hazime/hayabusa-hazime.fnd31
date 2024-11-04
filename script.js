@@ -12,7 +12,7 @@ const addTableView = () => {
         document.getElementById("emotion").value-50,
         //document.getElementsByName("effect-type")[0].value,
         isNaN(document.getElementsByName("effect")[0].valueAsNumber) ? "嬉しい":document.getElementsByName("effect")[0].valueAsNumber,
-        random
+        {stone:"グー",scisoors:"チョキ",peper:"パー"}[random]
     ];
     const trTag = document.createElement("tr");
     valueArray.forEach(value => {
@@ -53,6 +53,8 @@ const victoryEvent = () => {
 victoryButton.addEventListener("click",()=>{
     document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr")[document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr").length-1].appendChild(victoryEvent());
     document.getElementsByName("draw-count")[0].innerText = 1;
+    const hands = ["stone","scisoors","peper"];
+    hands.forEach(hand=>document.getElementsByClassName(hand)[0].style.visibility = "hidden");
 })
 
 
@@ -64,6 +66,8 @@ const looseEvent = () => {
 looseButton.addEventListener("click",()=>{
     document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr")[document.getElementsByClassName("dataTable")[0].getElementsByTagName("tr").length-1].appendChild(looseEvent());
     document.getElementsByName("draw-count")[0].innerText = 1;
+    const hands = ["stone","scisoors","peper"];
+    hands.forEach(hand=>document.getElementsByClassName(hand)[0].style.visibility = "hidden");
 })
 
 
