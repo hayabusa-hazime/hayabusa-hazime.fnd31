@@ -10,8 +10,8 @@ const addTableView = () => {
     const valueArray = [
         document.getElementsByName("user")[0].value === "" ? "不明":document.getElementsByName("user")[0].value,
         document.getElementById("emotion").value-50,
-        //document.getElementsByName("effect-type")[0].value,
-        isNaN(document.getElementsByName("effect")[0].valueAsNumber) ? "嬉しい":document.getElementsByName("effect")[0].valueAsNumber,
+        //document.getElementsByName("effect-type")[0].value,              <option value="money">お金(×100円)</option><option value="work">労力(分)</option>
+        isNaN(document.getElementsByName("effect")[0].valueAsNumber) ? "嬉しい": document.getElementsByName("effect-type")[0].value === "money" ?document.getElementsByName("effect")[0].valueAsNumber * 100 + "円":document.getElementsByName("effect")[0].valueAsNumber + "分",
         {stone:"グー",scisoors:"チョキ",peper:"パー"}[random]
     ];
     const trTag = document.createElement("tr");
